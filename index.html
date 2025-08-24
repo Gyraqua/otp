@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCESSING MAINFRAME...</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+
+    <div id="app-container" class="hidden">
+        <div class="container-scanlines"></div>
+        <h1 id="main-header">AUTHENTICATION CODES</h1>
+        <p class="timer">RENEGOTIATING KEY IN: <strong id="timer">30</strong>s</p>
+        
+        <table class="otp-table">
+            <thead>
+                <tr>
+                    <th>NODE_ALIAS</th>
+                    <th>ENCRYPTION_KEY</th>
+                    <th>PASSCODE_SEQUENCE</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody id="otp-table-body">
+            </tbody>
+        </table>
+
+        <div class="add-account-form">
+            <h2>INJECT NEW NODE</h2>
+            <input type="text" id="account-name-input" placeholder="> ALIAS (e.g., GITHUB_ROOT)">
+            <input type="text" id="secret-key-input" placeholder="> BASE32 SECRET PAYLOAD">
+            <button id="add-account-btn">EXECUTE_INJECTION</button>
+            <p class="error-message" id="error-msg"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/otpauth@9.1.4/dist/otpauth.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

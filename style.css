@@ -1,0 +1,181 @@
+/* --- GLOBAL HACKER DESIGN --- */
+@keyframes text-flicker {
+    0% { opacity: 0.8; text-shadow: 0 0 10px #00ff41; }
+    5% { opacity: 0.5; }
+    10% { opacity: 0.9; }
+    20% { opacity: 0.4; text-shadow: 0 0 15px #00ff41; }
+    30% { opacity: 1; }
+    40% { opacity: 0.6; }
+    50% { opacity: 0.8; text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41; }
+    60% { opacity: 0.5; }
+    70% { opacity: 0.9; }
+    80% { opacity: 0.4; }
+    90% { opacity: 1; text-shadow: 0 0 10px #00ff41; }
+    100% { opacity: 0.8; }
+}
+
+@keyframes code-flash {
+    0% { background-color: transparent; color: #00ff41; }
+    50% { background-color: #00ff41; color: #000; }
+    100% { background-color: transparent; color: #00ff41; }
+}
+
+body {
+    background-color: #000;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* --- BACKGROUND CANVAS --- */
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* BACKGROUND LAYER */
+}
+
+/* --- MAIN APP CONTAINER --- */
+#app-container {
+    width: 900px;
+    max-width: 95%;
+    background-color: rgba(0, 10, 0, 0.65);
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 25px #00ff41, inset 0 0 15px rgba(0, 255, 65, 0.5);
+    padding: 25px 35px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    /* FADE-IN EFFECT */
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+#app-container.visible {
+    opacity: 1;
+}
+
+.container-scanlines {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5) 1px, transparent 1px, transparent 3px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #00ff41;
+    text-shadow: 0 0 10px #00ff41, 0 0 5px #fff;
+    letter-spacing: 3px;
+    animation: text-flicker 3s infinite;
+}
+h2 { animation: none; }
+
+.timer {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* --- TABLE --- */
+.otp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+.otp-table th, .otp-table td {
+    padding: 12px 15px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.otp-table th {
+    background-color: rgba(0, 255, 65, 0.1);
+    text-transform: uppercase;
+}
+
+.otp-code {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #00ff41;
+    letter-spacing: 6px;
+    text-shadow: 0 0 8px #00ff41;
+}
+.otp-code.flash {
+    animation: code-flash 0.5s ease-in-out;
+}
+
+.secret-key-cell {
+    color: #008a23;
+    word-break: break-all;
+}
+
+/* --- FORM & BUTTONS --- */
+.add-account-form {
+    border: 1px dashed rgba(0, 255, 65, 0.5);
+    padding: 20px;
+    background-color: transparent;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00ff41;
+    border-radius: 0;
+    color: #00ff41;
+    font-size: 1em;
+    font-family: 'Courier New', Courier, monospace;
+}
+input[type="text"]::placeholder {
+    color: rgba(0, 255, 65, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 2px solid #00ff41;
+    color: #00ff41;
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+}
+button:hover {
+    background-color: #00ff41;
+    color: #000;
+    box-shadow: 0 0 20px #00ff41;
+}
+
+.delete-btn {
+    background-color: transparent;
+    border-color: #cf6679;
+    color: #cf6679;
+}
+.delete-btn:hover {
+    background-color: #cf6679;
+    color: #000;
+    box-shadow: 0 0 20px #cf6679;
+}
+
+.error-message {
+    color: #cf6679;
+    text-align: center;
+    min-height: 20px;
+    margin-top: 10px;
+}
