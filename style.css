@@ -235,8 +235,8 @@ button:hover {
     }
 
     .otp-code {
-        font-size: 1.8em;
-        letter-spacing: 4px;
+        font-size: 1.5em;
+        letter-spacing: 3px;
     }
 
     .secret-key-cell {
