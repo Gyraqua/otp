@@ -1,1 +1,1 @@
-# OTP (testing purposes)
+# Client-side OTP Generator
