@@ -93,10 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const isUserAccount = index >= initialAccounts.length;
             const userAccountIndex = index - initialAccounts.length;
             row.innerHTML = `
-                <td>${account.name}</td>
-                <td class="secret-key-cell">${account.secret}</td>
-                <td class="otp-code" data-secret="${account.secret}">------</td>
-                <td>
+                <td data-label="NODE_ALIAS">${account.name}</td>
+                <td data-label="ENCRYPTION_KEY" class="secret-key-cell">${account.secret}</td>
+                <td data-label="PASSCODE_SEQUENCE" class="otp-code" data-secret="${account.secret}">------</td>
+                <td data-label="ACTIONS">
                     ${isUserAccount ? `<button class="delete-btn" data-index="${userAccountIndex}">DELETE_NODE</button>` : 'CORE'}
                 </td>
             `;
