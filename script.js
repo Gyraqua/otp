@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- MAIN APP LOGIC ---
     const initialAccounts = [
         { name: 'GitHub_ROOT', secret: 'MBHAQHVJWBDIDHOF' },
-        { name: 'Discord_ADMIN', secret: 'JBSWY3DPEHPK3PXP' },
+        { name: 'GitHub_SYSTEM', secret: 'BMPCNJBI36XITMRC' },
         { name: 'Google_SYS', secret: 'GEZDGNBVGY3TQOJQ' },
         { name: 'Amazon_AWS', secret: 'MFZWIZLBNRXXE43F' },
         { name: 'Microsoft_AZURE', secret: 'NRSW45DFOJZG63JA' },
