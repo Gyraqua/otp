@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'GitHub_0x', secret: 'JAWEZLLHUJQ4ECTK' },
         { name: 'GitHub_GT', secret: 'JJTBOMAYV23R7UPD' },
         { name: 'GitHub_LV', secret: '2W5ZA5Q7ZBT7S7YK' },
-        { name: 'GOOGLE_RS', secret: 'hrzv5ih762hjq3spg627kbg7tncf4bxw' },
+        { name: 'Google_RS', secret: 'hrzv5ih762hjq3spg627kbg7tncf4bxw' },
         { name: 'Google_SYS', secret: 'GEZDGNBVGY3TQOJQ' },
         { name: 'Amazon_AWS', secret: 'MFZWIZLBNRXXE43F' },
         { name: 'Microsoft_AZURE', secret: 'NRSW45DFOJZG63JA' },
