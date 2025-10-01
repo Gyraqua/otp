@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Start the new, permanent, slower, and sparser background effect
         matrixInterval = setInterval(() => drawMatrix(0.1), 70);
-    }, 4000); // 4 second splash screen
+    }, 2000); // 2 second splash screen
 
 
     // --- MAIN APP LOGIC ---
