@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- MAIN APP LOGIC ---
     const initialAccounts = [
-        { name: 'GitHub_ROOT', secret: 'MBHAQHVJWBDIDHOF' },
+        { name: 'GitHub_0x', secret: 'JAWEZLLHUJQ4ECTK' },
         { name: 'GitHub_GMT', secret: 'JJTBOMAYV23R7UPD' },
         { name: 'GitHub_SYSTEM', secret: 'BMPCNJBI36XITMRC' },
         { name: 'GOOGLE_RS', secret: 'hrzv5ih762hjq3spg627kbg7tncf4bxw' },
