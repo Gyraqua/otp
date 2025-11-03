@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'GitHub_0x', secret: 'JAWEZLLHUJQ4ECTK' },
         { name: 'Google_0x', secret: 'HUQWATIOVSGCPDZSLNLCNJUGFSD27SWX' },
 
+        { name: 'Google_GT', secret: '7af5l54uaawfir7eyso63lfwjornpwig' }
         { name: 'GitHub_GT', secret: 'JJTBOMAYV23R7UPD' },
 
         { name: 'GitHub_LV', secret: '2W5ZA5Q7ZBT7S7YK' },
