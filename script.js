@@ -179,8 +179,56 @@ document.addEventListener('DOMContentLoaded', () => {
             userAccounts.splice(indexToDelete, 1);
             saveUserAccounts(userAccounts);
             loadAndRender();
+            return;
+        }
+
+        // Click-to-copy for PASSCODE_SEQUENCE cells
+        const otpCell = event.target.closest('.otp-code');
+        if (otpCell) {
+            const code = otpCell.textContent.trim();
+            if (!code || code === 'ERROR' || code === '------') {
+                return;
+            }
+
+            const triggerFlash = () => {
+                otpCell.classList.remove('flash');
+                // Force reflow so animation can retrigger
+                void otpCell.offsetWidth;
+                otpCell.classList.add('flash');
+            };
+
+            // Try async clipboard API first
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(code)
+                    .then(triggerFlash)
+                    .catch(() => {
+                        // Fallback for restricted environments
+                        fallbackCopy(otpCell, code, triggerFlash);
+                    });
+            } else {
+                fallbackCopy(otpCell, code, triggerFlash);
+            }
         }
     });
+
+    function fallbackCopy(otpCell, text, onSuccess) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            otpCell.classList.remove('copied');
+            void otpCell.offsetWidth;
+            otpCell.classList.add('copied');
+            setTimeout(() => otpCell.classList.remove('copied'), 400);
+        } catch (e) {
+            // Silent fail; no UX spam in hacker UI
+        }
+        document.body.removeChild(textarea);
+    }
 
     loadAndRender();
     setInterval(updateAllOtps, 1000);

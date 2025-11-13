@@ -111,6 +111,8 @@ h2 { animation: none; }
     color: #00ff41;
     letter-spacing: 6px;
     text-shadow: 0 0 8px #00ff41;
+    cursor: pointer;
+    user-select: none;
 }
 .otp-code.flash {
     animation: code-flash 0.5s ease-in-out;
