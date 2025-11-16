@@ -60,12 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- MAIN APP LOGIC ---
     const initialAccounts = [
-        { name: 'GitHub_0x', secret: 'JAWEZLLHUJQ4ECTK' },
         { name: 'Google_0x', secret: 'HUQWATIOVSGCPDZSLNLCNJUGFSD27SWX' },
+        { name: 'GitHub_0x', secret: 'JAWEZLLHUJQ4ECTK' },
 
         { name: 'Google_GT', secret: '7af5l54uaawfir7eyso63lfwjornpwig' },
         { name: 'GitHub_GT', secret: 'JJTBOMAYV23R7UPD' },
 
+        { name: 'Google_LV', secret: 'MGR57SBUWTTAMV36YNRLXMOCCDT5UOJZ'},
         { name: 'GitHub_LV', secret: '2W5ZA5Q7ZBT7S7YK' },
         
         { name: 'Google_RS', secret: 'hrzv5ih762hjq3spg627kbg7tncf4bxw' },
